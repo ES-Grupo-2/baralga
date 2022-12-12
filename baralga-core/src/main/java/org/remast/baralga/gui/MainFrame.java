@@ -396,6 +396,7 @@ public class MainFrame extends JFrame {
         case BaralgaEvent.START_CHANGED:
             this.updateTitle();
             break;
+            default: break;
         }
     }
 
