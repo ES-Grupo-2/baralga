@@ -1,0 +1,75 @@
+* Starting client
+* Connecting to master process on port 20296
+* Analyzing classpath: 
+  - C:\Users\maria\Documents\projeto real\jogamais\baralga\repository\api\target\classes
+  - C:\Users\maria\.m2\repository\joda-time\joda-time\2.10.6\joda-time-2.10.6.jar
+  - C:\Users\maria\.m2\repository\junit\junit\4.12\junit-4.12.jar
+  - C:\Users\maria\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+* Finished analyzing classpath
+* Generating tests for class org.remast.baralga.repository.UnauthorizedException
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 21:42:08.141 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\maria\Documents\projeto real\jogamais\baralga\repository\api\.evosuite\evosuite-seeds\org.remast.baralga.repository.UnauthorizedException.seed
+* Loaded 0 tests from C:\Users\maria\Documents\projeto real\jogamais\baralga\repository\api\.evosuite\evosuite-seeds\org.remast.baralga.repository.UnauthorizedException.seed
+* Total number of test goals: 
+  - Line 4
+  - Branch 2
+  - Exception 0
+  - MutationFactory 0
+  - Output 3
+  - Method 2
+  - MethodNoException 2
+  - CBranchFitnessFactory 2
+* Using seed 1670892125083
+* Starting evolution
+* Search finished after 61s and 2815 generations, 382753 statements, best individual has fitness: 1.5
+* Writing sequences to pool
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 75%
+* Total number of goals: 4
+* Number of covered goals: 3
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100% (no goals)
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 100% (no goals)
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 100%
+* Total number of goals: 3
+* Number of covered goals: 3
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Generated 3 tests with total length 6
+* Resulting test suite's coverage: 97% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 100%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 65
+* Writing JUnit test case 'UnauthorizedException_ESTest' to C:\Users\maria\Documents\projeto real\jogamais\baralga\repository\api\.evosuite\tmp_2022_12_12_21_42_02\tests
+* Done!
+
