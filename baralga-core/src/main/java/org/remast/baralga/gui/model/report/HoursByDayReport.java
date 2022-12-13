@@ -85,6 +85,8 @@ public class HoursByDayReport {
             case BaralgaEvent.PROJECT_REMOVED:
                calculateHours();
                break;
+
+            default: break;
         }
 
         eventBus.post(this);

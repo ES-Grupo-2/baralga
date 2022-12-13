@@ -278,6 +278,8 @@ public class AllActitvitiesPanel extends JPanel {
         case BaralgaEvent.PROJECT_REMOVED:
 			tableModel.fireTableDataChanged();
 			break;
+
+			default: break;
 		}
 	}
 

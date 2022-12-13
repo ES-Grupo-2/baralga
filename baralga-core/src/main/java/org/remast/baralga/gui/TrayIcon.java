@@ -169,7 +169,8 @@ public class TrayIcon {
                 case BaralgaEvent.START_CHANGED:
                     this.updateToolTip();
                     break;
-                    
+
+                default: break;
             }
         }
     }

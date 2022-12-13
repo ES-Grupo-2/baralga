@@ -95,6 +95,8 @@ public class ProjectFilterList {
         case BaralgaEvent.PROJECT_CHANGED:
             this.initialize();
             break;
+
+            default: break;
         }
     }
 
