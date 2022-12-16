@@ -100,8 +100,8 @@ public class XmlDataReader extends DefaultHandler {
 	}
 
 	@Override
-	public void characters(char[] ch, int start, int length) {
-		final String currentCharacters = new String(ch, start, length);
+	public void characters(char[] character, int start, int length) {
+		final String currentCharacters = new String(character, start, length);
 		if (currentBuffer == null) {
 			currentBuffer = currentCharacters;
 		} else {
@@ -125,11 +125,11 @@ public class XmlDataReader extends DefaultHandler {
 	 * Read the data from an {@link InputStream}.
 	 * @throws IOException
 	 */
-	public void read(final InputStream in) throws IOException {
+	public void read(final InputStream input) throws IOException {
 		try {
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
-			saxParser.parse(in, this);
+			saxParser.parse(input, this);
 		} catch (Exception e) {
 			throw new IOException(e);
 		}

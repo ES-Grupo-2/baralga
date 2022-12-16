@@ -89,8 +89,8 @@ public class HoursByQuarterPanel extends JXPanel {
     }
 
     @Subscribe
-    public void update(final Object o) {
-		if (o instanceof HoursByQuarterReport) {
+    public void update(final Object obj) {
+		if (obj instanceof HoursByQuarterReport) {
 			tableModel.fireTableDataChanged();
 		}
     }

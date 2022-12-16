@@ -31,7 +31,7 @@ import org.remast.util.TextResourceBundle;
       * {@inheritDoc}
       */
      @Override
-     public final void actionPerformed(final ActionEvent e) {
+     public final void actionPerformed(final ActionEvent event) {
          undo();
      }
      

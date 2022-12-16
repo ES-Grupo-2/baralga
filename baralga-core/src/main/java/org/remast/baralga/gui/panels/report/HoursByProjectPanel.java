@@ -91,8 +91,8 @@ public class HoursByProjectPanel extends JXPanel {
 		this.add(tableScrollPane, "1, 3");
 		}
 
-    @Subscribe public void update(final Object o) {
-        if (o instanceof HoursByProjectReport) {
+    @Subscribe public void update(final Object obj) {
+        if (obj instanceof HoursByProjectReport) {
             tableModel.fireTableDataChanged();
         }
     }

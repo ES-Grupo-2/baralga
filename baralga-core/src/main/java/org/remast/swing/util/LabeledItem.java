@@ -81,8 +81,8 @@ public class LabeledItem<E extends Comparable<E>> implements Comparable<LabeledI
     }
 
     @Override
-    public int compareTo(final LabeledItem<E> o) {
-        return this.getItem().compareTo(o.getItem());
+    public int compareTo(final LabeledItem<E> labeledItem) {
+        return this.getItem().compareTo(labeledItem	.getItem());
     }
 
 }

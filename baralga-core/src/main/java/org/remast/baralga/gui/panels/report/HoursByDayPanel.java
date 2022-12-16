@@ -93,8 +93,8 @@ public class HoursByDayPanel extends JXPanel {
     }
 
    @Subscribe
-   public void update(final Object o) {
-        if (o instanceof HoursByDayReport) {
+   public void update(final Object obj) {
+        if (obj instanceof HoursByDayReport) {
             tableModel.fireTableDataChanged();
         }
     }
