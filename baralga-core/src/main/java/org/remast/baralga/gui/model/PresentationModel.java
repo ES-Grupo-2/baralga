@@ -137,7 +137,7 @@ public class PresentationModel {
 		this.allProjectsList.clear();
 		this.allProjectsList.addAll(projects);
 
-		this.projectAdministrationAllowed = baralgaDAO.isProjectAdministrationAllowed();
+		this.projectAdministrationAllowed = true;
 
 		this.activitiesList.clear();
 
