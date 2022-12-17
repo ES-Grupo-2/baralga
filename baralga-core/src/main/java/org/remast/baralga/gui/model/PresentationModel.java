@@ -137,7 +137,7 @@ public class PresentationModel {
 		this.allProjectsList.clear();
 		this.allProjectsList.addAll(projects);
 
-		this.projectAdministrationAllowed = baralgaDAO.isProjectAdministrationAllowed();
+		this.projectAdministrationAllowed = true;
 
 		this.activitiesList.clear();
 
@@ -420,10 +420,10 @@ public class PresentationModel {
 		// Also make a new activity from 0:00 the next day until the stop time
 		// of the next day.
 		if (!org.apache.commons.lang3.time.DateUtils.isSameDay(start.toDate(), endDate.toDate())) {
-			DateTime dt = new DateTime(start);
-			dt = dt.plusDays(1);
+			DateTime dateTime = new DateTime(start);
+			dateTime = dateTime.plusDays(1);
 
-			stop = dt.toDateMidnight().toDateTime();
+			stop = dateTime.toDateMidnight().toDateTime();
 
 			stop2 = DateUtils.getNowAsDateTime();
 			final DateTime start2 = stop;

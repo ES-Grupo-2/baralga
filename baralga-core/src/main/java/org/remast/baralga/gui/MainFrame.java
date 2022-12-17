@@ -143,12 +143,12 @@ public class MainFrame extends JFrame {
         this.addComponentListener(new ComponentAdapter() {
 
             @Override
-            public void componentMoved(final ComponentEvent e) {
+            public void componentMoved(final ComponentEvent event) {
                 UserSettings.instance().setWindowLocation(MainFrame.this.getLocation());
             }
 
             @Override
-            public void componentResized(final ComponentEvent e) {
+            public void componentResized(final ComponentEvent event) {
                 UserSettings.instance().setWindowSize(MainFrame.this.getSize());
             }
             
@@ -159,18 +159,18 @@ public class MainFrame extends JFrame {
         this.addWindowListener(new WindowAdapter() {
             
             @Override
-            public void windowIconified(final WindowEvent e) {
-                MainFrame.this.windowIconified(e);
+            public void windowIconified(final WindowEvent event) {
+                MainFrame.this.windowIconified(event);
             }
             
             @Override
-            public void windowClosed(final WindowEvent e) {
-                MainFrame.this.windowClosing(e);
+            public void windowClosed(final WindowEvent event) {
+                MainFrame.this.windowClosing(event);
             }
             
             @Override
-            public void windowClosing(WindowEvent e) {
-                MainFrame.this.windowClosing(e);
+            public void windowClosing(WindowEvent event) {
+                MainFrame.this.windowClosing(event);
             }
             
         });
@@ -513,7 +513,7 @@ public class MainFrame extends JFrame {
         return importMenu;
     }
 
-    public void windowIconified(final java.awt.event.WindowEvent e) {
+    public void windowIconified(final java.awt.event.WindowEvent event) {
         if (BaralgaMain.getTray() != null) {
             this.setVisible(false);
         }
@@ -526,7 +526,8 @@ public class MainFrame extends JFrame {
      *
      * @param e the window closing event
      */
-    public void windowClosing(final java.awt.event.WindowEvent e) {
+    public void windowClosing(final java.awt.event.WindowEvent event) {
+
         if (BaralgaMain.getTray() != null) {
             this.setVisible(false);
         } else {

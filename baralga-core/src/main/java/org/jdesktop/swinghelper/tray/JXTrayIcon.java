@@ -41,7 +41,7 @@ import javax.swing.UIManager;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 
-public class JXTrayIcon extends TrayIcon {
+public class JXTrayIcon extends TrayIcon {	
     private JPopupMenu menu;
     private static JDialog dialog;
     static {
@@ -52,14 +52,14 @@ public class JXTrayIcon extends TrayIcon {
     
     private static PopupMenuListener popupListener = new PopupMenuListener() {
         
-        public void popupMenuWillBecomeVisible(final PopupMenuEvent e) {
+        public void popupMenuWillBecomeVisible(final PopupMenuEvent event) {
         }
 
-        public void popupMenuWillBecomeInvisible(final PopupMenuEvent e) {
+        public void popupMenuWillBecomeInvisible(final PopupMenuEvent event) {
             dialog.setVisible(false);
         }
 
-        public void popupMenuCanceled(final PopupMenuEvent e) {
+        public void popupMenuCanceled(final PopupMenuEvent event) {
             dialog.setVisible(false);
         }
     };
@@ -70,22 +70,22 @@ public class JXTrayIcon extends TrayIcon {
         addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mousePressed(final MouseEvent e) {
-                showJPopupMenu(e);
+            public void mousePressed(final MouseEvent event) {
+                showJPopupMenu(event);
             }
 
             @Override
-            public void mouseReleased(final MouseEvent e) {
-                showJPopupMenu(e);
+            public void mouseReleased(final MouseEvent event) {
+                showJPopupMenu(event);
             }
 
         });
     }
 
-    private void showJPopupMenu(final MouseEvent e) {
-        if (e.isPopupTrigger() && menu != null) {
+    private void showJPopupMenu(final MouseEvent event) {
+        if (event.isPopupTrigger() && menu != null) {
             Dimension size = menu.getPreferredSize();
-            dialog.setLocation(e.getX(), e.getY() - size.height);
+            dialog.setLocation(event.getX(), event.getY() - size.height);
             dialog.setVisible(true);
             menu.show(dialog.getContentPane(), 0, 0);
             // popup works only for focused windows
@@ -122,27 +122,27 @@ public class JXTrayIcon extends TrayIcon {
     }
 
     static Image createImage() {
-        BufferedImage i = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = (Graphics2D) i.getGraphics();
-        g2.setColor(Color.RED);
-        g2.fill(new Ellipse2D.Float(0, 0, i.getWidth(), i.getHeight()));
-        g2.dispose();
-        return i;
+        BufferedImage image = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2D = (Graphics2D) image.getGraphics();
+        g2D.setColor(Color.RED);
+        g2D.fill(new Ellipse2D.Float(0, 0, image.getWidth(), image.getHeight()));
+        g2D.dispose();
+        return image;
     }
 
     static JPopupMenu createJPopupMenu() {
-        final JPopupMenu m = new JPopupMenu();
-        m.add(new JMenuItem("Item 1"));
-        m.add(new JMenuItem("Item 2"));
+        final JPopupMenu menu = new JPopupMenu();
+        menu.add(new JMenuItem("Item 1"));
+        menu.add(new JMenuItem("Item 2"));
         JMenu submenu = new JMenu("Submenu");
         submenu.add(new JMenuItem("item 1"));
         submenu.add(new JMenuItem("item 2"));
         submenu.add(new JMenuItem("item 3"));
-        m.add(submenu);        
+        menu.add(submenu);        
         
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(e -> System.exit(0));
-        m.add(exitItem);
-        return m;
+        menu.add(exitItem);
+        return menu;
     }
 } 

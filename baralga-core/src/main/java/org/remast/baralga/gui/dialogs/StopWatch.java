@@ -75,12 +75,12 @@ public class StopWatch extends JWindow {
 		this.addComponentListener(new ComponentAdapter() {
 
 			@Override
-			public void componentMoved(final ComponentEvent e) {
+			public void componentMoved(final ComponentEvent event) {
 				UserSettings.instance().setStopwatchWindowLocation(StopWatch.this.getLocation());
 			}
 
 			@Override
-			public void componentResized(final ComponentEvent e) {
+			public void componentResized(final ComponentEvent event) {
 				UserSettings.instance().setStopwatchWindowSize(StopWatch.this.getSize());
 			}
 

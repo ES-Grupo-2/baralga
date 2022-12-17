@@ -76,9 +76,9 @@ public class ExceptionUtils {
 	public static final class ExceptionHandler implements UncaughtExceptionHandler {
 		
 		@Override
-		public void uncaughtException(Thread t, Throwable e) {
-			log.error(e.getLocalizedMessage(), e);
-			showErrorDialog(e);
+		public void uncaughtException(Thread thread, Throwable error) {
+			log.error(error.getLocalizedMessage(), error);
+			showErrorDialog(error);
 		}
 
 	}

@@ -69,8 +69,8 @@ public class HoursByProjectChartPanel extends JXPanel {
     }
 
     @Subscribe
-    public void update(final Object o) {
-        if (o instanceof HoursByProjectReport) {
+    public void update(final Object obj) {
+        if (obj instanceof HoursByProjectReport) {
             initChartData();
         }
     }

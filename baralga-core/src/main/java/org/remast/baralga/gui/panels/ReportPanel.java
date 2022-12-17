@@ -136,12 +136,12 @@ public class ReportPanel extends JXPanel implements ActionListener {
 		homeButton.setContentAreaFilled(false);
 		homeButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseEntered(MouseEvent e) {
+			public void mouseEntered(MouseEvent event) {
 				homeButton.setBackgroundPainter(new org.jdesktop.swingx.painter.CompoundPainter<JXButton>(new MattePainter((Color) UIManager.getLookAndFeelDefaults().get("Button.light")), new GlossPainter()));
 			}
 			
 			@Override
-			public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent event) {
 				homeButton.setBackgroundPainter(null);
 			}
 		});

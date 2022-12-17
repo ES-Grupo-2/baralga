@@ -91,9 +91,9 @@ public class HoursByMonthPanel extends JXPanel
     }
 
     @Subscribe
-    public void update(final Object o)
+    public void update(final Object obj)
     {
-        if (o instanceof HoursByMonthReport)
+        if (obj instanceof HoursByMonthReport)
         {
             tableModel.fireTableDataChanged();
         }

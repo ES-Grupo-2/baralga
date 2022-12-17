@@ -90,18 +90,18 @@ public class SmartTimeFormat extends TimeFormat {
 
         	try {
         		// Convert to integer value
-        		int m = Integer.parseInt(mm);
+        		int minutes = Integer.parseInt(mm);
 
         		// Convert to float for calculation
-        		float fm = m;          
+        		float float_minutes = minutes;          
 
         		// Convert from base100 to base60
-        		fm *= 0.6;                     
+        		float_minutes *= 0.6;                     
 
         		// Round to int
-        		m = java.lang.Math.round(fm);  
+        		minutes = java.lang.Math.round(float_minutes);  
 
-        		mm = String.valueOf(m);
+        		mm = String.valueOf(minutes);
         		if (mm.length() < 2) {
         			mm = "0" + mm; 
         		}

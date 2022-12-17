@@ -93,8 +93,8 @@ public class HoursByWeekPanel extends JXPanel {
     }
 
     @Subscribe
-    public void update(final Object o) {
-        if (o instanceof HoursByWeekReport) {
+    public void update(final Object obj) {
+        if (obj instanceof HoursByWeekReport) {
             tableModel.fireTableDataChanged();
         }
     }

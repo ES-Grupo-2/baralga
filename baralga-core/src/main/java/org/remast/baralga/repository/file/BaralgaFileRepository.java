@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.*;
@@ -135,8 +134,8 @@ public class BaralgaFileRepository implements BaralgaRepository {
             return;
         }
 
-        InputStream is = BaralgaFileRepository.class.getResourceAsStream("sql/h2/" + scriptName);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        InputStream inputStream = BaralgaFileRepository.class.getResourceAsStream("sql/h2/" + scriptName);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         RunScript.execute(connection, reader);
     }
 
@@ -256,8 +255,8 @@ public class BaralgaFileRepository implements BaralgaRepository {
             preparedStatement.setString(1, activityId);
             preparedStatement.setString(2, activity.getDescription());
 
-            final Timestamp d = new Timestamp( activity.getStart().getMillis());
-            preparedStatement.setTimestamp(3,d);
+            final Timestamp startDate = new Timestamp( activity.getStart().getMillis());
+            preparedStatement.setTimestamp(3,startDate);
 
             final Timestamp endDate = new Timestamp( activity.getEnd().getMillis());
             preparedStatement.setTimestamp(4, endDate);
@@ -375,8 +374,8 @@ public class BaralgaFileRepository implements BaralgaRepository {
         try (final PreparedStatement preparedStatement = prepare(sql)) {
             preparedStatement.setString(1, activity.getDescription());
 
-            final Timestamp d = new Timestamp( activity.getStart().getMillis());
-            preparedStatement.setTimestamp(2,d);
+            final Timestamp startDate = new Timestamp( activity.getStart().getMillis());
+            preparedStatement.setTimestamp(2,startDate);
 
             final Timestamp endDate = new Timestamp( activity.getEnd().getMillis());
             preparedStatement.setTimestamp(3, endDate);
@@ -404,13 +403,13 @@ public class BaralgaFileRepository implements BaralgaRepository {
         try (final PreparedStatement preparedStatement = prepare("select * from project where project_id = ?")) { //$NON-NLS-1$
             preparedStatement.setString(1, projectId);
 
-            try (ResultSet rs = preparedStatement.executeQuery()) {
-                if (rs.next()) {
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
                     final ProjectVO project = new ProjectVO(
-                            rs.getString("project_id"),  //$NON-NLS-1$
-                            rs.getString("title"),  //$NON-NLS-1$
-                            rs.getString("description"), //$NON-NLS-1$
-                            rs.getBoolean("active") //$NON-NLS-1$
+                    		resultSet.getString("project_id"),  //$NON-NLS-1$
+                    		resultSet.getString("title"),  //$NON-NLS-1$
+                    		resultSet.getString("description"), //$NON-NLS-1$
+                    		resultSet.getBoolean("active") //$NON-NLS-1$
                     );
                     return Optional.ofNullable(project);
                 }

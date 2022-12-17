@@ -84,7 +84,7 @@ public class FilteredActivitiesPane extends JPanel {
 	private JToggleButton generalButton = new JToggleButton(new AbstractAction(textBundle.textFor("Category.General"), new ImageIcon(getClass().getResource("/icons/gtk-dnd-multiple.png"))) {
 
 	@Override
-	public void actionPerformed(final ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 	    FilteredActivitiesPane.this.toggleCategory("General"); //$NON-NLS-1$
 	}
 
@@ -97,7 +97,7 @@ public class FilteredActivitiesPane extends JPanel {
 	private JToggleButton timeButton = new JToggleButton(new AbstractAction(textBundle.textFor("Category.Time"), new ImageIcon(getClass().getResource("/icons/clock.png"))) {
 
 	@Override
-	public void actionPerformed(final ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 	    FilteredActivitiesPane.this.toggleCategory("Time"); //$NON-NLS-1$
 	}
 
@@ -109,7 +109,7 @@ public class FilteredActivitiesPane extends JPanel {
 	private JToggleButton projectButton = new JToggleButton(new AbstractAction(textBundle.textFor("Category.Project"), new ImageIcon(getClass().getResource("/icons/stock_calendar-view-day.png"))) {
 
 	@Override
-	public void actionPerformed(final ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 	    FilteredActivitiesPane.this.toggleCategory("Project"); //$NON-NLS-1$
 	}
 

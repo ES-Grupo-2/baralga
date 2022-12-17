@@ -91,20 +91,20 @@ public class ScreenUtils {
      */
     public static Rectangle containsInScreenBounds(final Component invoker, final Rectangle rect) {
         Rectangle screenBounds = getScreenBounds(invoker);
-        Point p = rect.getLocation();
-        if (p.x + rect.width > screenBounds.x + screenBounds.width) {
-            p.x = screenBounds.x + screenBounds.width - rect.width;
+        Point point = rect.getLocation();
+        if (point.x + rect.width > screenBounds.x + screenBounds.width) {
+            point.x = screenBounds.x + screenBounds.width - rect.width;
         }
-        if (p.y + rect.height > screenBounds.y + screenBounds.height) {
-            p.y = screenBounds.y + screenBounds.height - rect.height;
+        if (point.y + rect.height > screenBounds.y + screenBounds.height) {
+            point.y = screenBounds.y + screenBounds.height - rect.height;
         }
-        if (p.x < screenBounds.x) {
-            p.x = screenBounds.x;
+        if (point.x < screenBounds.x) {
+            point.x = screenBounds.x;
         }
-        if (p.y < screenBounds.y) {
-            p.y = screenBounds.y;
+        if (point.y < screenBounds.y) {
+            point.y = screenBounds.y;
         }
-        return new Rectangle(p, rect.getSize());
+        return new Rectangle(point, rect.getSize());
     }
 
     /**
@@ -116,20 +116,20 @@ public class ScreenUtils {
      */
     public static Rectangle overlapWithScreenBounds(final Component invoker, final Rectangle rect) {
         Rectangle screenBounds = getScreenBounds(invoker);
-        Point p = rect.getLocation();
-        if (p.x > screenBounds.x + screenBounds.width) {
-            p.x = screenBounds.x + screenBounds.width - rect.width;
+        Point point = rect.getLocation();
+        if (point.x > screenBounds.x + screenBounds.width) {
+            point.x = screenBounds.x + screenBounds.width - rect.width;
         }
-        if (p.y > screenBounds.y + screenBounds.height) {
-            p.y = screenBounds.y + screenBounds.height - rect.height;
+        if (point.y > screenBounds.y + screenBounds.height) {
+            point.y = screenBounds.y + screenBounds.height - rect.height;
         }
-        if (p.x + rect.width < screenBounds.x) {
-            p.x = screenBounds.x;
+        if (point.x + rect.width < screenBounds.x) {
+            point.x = screenBounds.x;
         }
-        if (p.y + rect.height < screenBounds.y) {
-            p.y = screenBounds.y;
+        if (point.y + rect.height < screenBounds.y) {
+            point.y = screenBounds.y;
         }
-        return new Rectangle(p, rect.getSize());
+        return new Rectangle(point, rect.getSize());
     }
 
     /**
@@ -200,8 +200,8 @@ public class ScreenUtils {
      * @return the screen bounds.
      */
     public static Rectangle getLocalScreenBounds() {
-        GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        return e.getMaximumWindowBounds();
+        GraphicsEnvironment localEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        return localEnvironment.getMaximumWindowBounds();
     }
 
     /**

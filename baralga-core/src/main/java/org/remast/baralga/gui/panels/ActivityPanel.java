@@ -196,7 +196,7 @@ public class ActivityPanel extends JPanel implements ActionListener {
         start.addFocusListener(new FocusListener() {
 
             @Override
-            public void focusGained(final FocusEvent e) {
+            public void focusGained(final FocusEvent event) {
             }
 
             @Override

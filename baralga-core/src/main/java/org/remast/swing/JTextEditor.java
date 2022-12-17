@@ -81,12 +81,12 @@ public class JTextEditor extends JXPanel {
         textArea.addFocusListener(new FocusListener() {
 
             @Override
-            public void focusGained(FocusEvent e) {
+            public void focusGained(FocusEvent event) {
                 // nothing to do
             }
 
             @Override
-            public void focusLost(FocusEvent e) {
+            public void focusLost(FocusEvent event) {
                 notifyTextObservers();
             }
         });

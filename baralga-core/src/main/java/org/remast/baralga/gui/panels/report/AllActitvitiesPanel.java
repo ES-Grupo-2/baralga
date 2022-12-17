@@ -197,28 +197,28 @@ public class AllActitvitiesPanel extends JPanel {
 
 		table.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseReleased(final MouseEvent e) {
-				checkForPopup(e);
+			public void mouseReleased(final MouseEvent event) {
+				checkForPopup(event);
 			}
 
 			@Override
-			public void mouseClicked(final MouseEvent e) {
-				checkForPopup(e);
+			public void mouseClicked(final MouseEvent event) {
+				checkForPopup(event);
 			}
 
 			@Override
-			public void mousePressed(final MouseEvent e) {
-				checkForPopup(e);
+			public void mousePressed(final MouseEvent event) {
+				checkForPopup(event);
 			}
 
-			private void checkForPopup(final MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					JTable table = (JTable) e.getSource();
+			private void checkForPopup(final MouseEvent event) {
+				if (event.isPopupTrigger()) {
+					JTable table = (JTable) event.getSource();
 					int[] selectionIndices = table.getSelectedRows();
 					if (selectionIndices.length == 0) {
 						// select cell under mouse
-						int row = table.rowAtPoint(e.getPoint());
-						int column = table.columnAtPoint(e.getPoint());
+						int row = table.rowAtPoint(event.getPoint());
+						int column = table.columnAtPoint(event.getPoint());
 						table.changeSelection(row, column, false, false);
 					}
 
@@ -230,7 +230,7 @@ public class AllActitvitiesPanel extends JPanel {
 						editAction.setEnabled(true);
 						copyDescriptionAction.setEnabled(true);
 					}
-					contextMenu.show(e.getComponent(), e.getX(), e.getY());
+					contextMenu.show(event.getComponent(), event.getX(), event.getY());
 				}
 			}
 		});

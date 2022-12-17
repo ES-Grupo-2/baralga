@@ -80,8 +80,8 @@ public class AccummulatedActitvitiesPanel extends JPanel implements Observer {
 		this.add(tableScrollPane, "1, 3");
     }
 
-    public void update(final Observable o, final Object arg) {
-        if (o instanceof ObservingAccumulatedActivitiesReport) {
+    public void update(final Observable obj, final Object arg) {
+        if (obj instanceof ObservingAccumulatedActivitiesReport) {
             tableModel.fireTableDataChanged();
         }
     }
