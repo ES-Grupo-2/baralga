@@ -124,6 +124,8 @@ public class SelectLastActionPanel extends JPanel {
 			updateInactivityTime(lastActivity);
 			updateLastProjextLabel();
 			break;
+
+			default: break;
 		}
 	}
 

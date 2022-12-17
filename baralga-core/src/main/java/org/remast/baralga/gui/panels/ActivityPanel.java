@@ -328,6 +328,8 @@ public class ActivityPanel extends JPanel implements ActionListener {
         case BaralgaEvent.START_CHANGED:
             updateDuration();
             break;
+
+            default: break;
         }
     }
 

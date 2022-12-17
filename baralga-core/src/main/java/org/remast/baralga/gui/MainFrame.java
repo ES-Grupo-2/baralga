@@ -396,6 +396,7 @@ public class MainFrame extends JFrame {
         case BaralgaEvent.START_CHANGED:
             this.updateTitle();
             break;
+            default: break;
         }
     }
 
@@ -518,27 +519,49 @@ public class MainFrame extends JFrame {
         }
     }
 
+    /**
+     * Handles the closing of the application window.
+     * If the application is running in tray mode, the window will be hidden.
+     * Otherwise, the user will be prompted to confirm the exit and the application will be terminated if confirmed.
+     *
+     * @param e the window closing event
+     */
     public void windowClosing(final java.awt.event.WindowEvent event) {
+
         if (BaralgaMain.getTray() != null) {
             this.setVisible(false);
         } else {
-            boolean quit = true;
-
-            if (model.isActive()) {
-                final int dialogResult = JOptionPane.showConfirmDialog(
-                        getOwner(), 
-                        textBundle.textFor("ExitConfirmDialog.Message"), //$NON-NLS-1$
-                        textBundle.textFor("ExitConfirmDialog.Title"), //$NON-NLS-1$
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.INFORMATION_MESSAGE
-                );
-                quit = JOptionPane.YES_OPTION == dialogResult;
-            } 
-
-            if (quit) {
-                System.exit(0);
+            if (showExitConfirmDialog()) {
+                quitApplication();
             }
         }
+    }
+
+    /**
+     * Shows a confirm dialog asking the user if they want to exit the application.
+     * The dialog will only be shown if the given model is active.
+     *
+     * @return true if the user confirmed the exit, false otherwise
+     */
+    private boolean showExitConfirmDialog() {
+        if (model.isActive()) {
+            final int dialogResult = JOptionPane.showConfirmDialog(
+                    getOwner(),
+                    textBundle.textFor("ExitConfirmDialog.Message"), //$NON-NLS-1$
+                    textBundle.textFor("ExitConfirmDialog.Title"), //$NON-NLS-1$
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            return JOptionPane.YES_OPTION == dialogResult;
+        }
+        return true;
+    }
+
+    /**
+     * Quits the application.
+     */
+    private void quitApplication() {
+        System.exit(0);
     }
 
     /**

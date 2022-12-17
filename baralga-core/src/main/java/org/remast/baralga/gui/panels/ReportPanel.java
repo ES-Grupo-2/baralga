@@ -246,6 +246,8 @@ public class ReportPanel extends JXPanel implements ActionListener {
 		case Previous:
 			FilterUtils.moveToPreviousInterval(filter);
 			break;
+
+			default: break;
 		}
 
 		final LabeledItem<SpanType> seletedItem = (LabeledItem<SpanType>) spanTypeSelector.getSelectedItem();

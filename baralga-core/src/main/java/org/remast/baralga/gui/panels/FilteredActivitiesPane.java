@@ -326,6 +326,8 @@ public class FilteredActivitiesPane extends JPanel {
 	    updateTabVisibility();
 	    break;
 
+		default: break;
+
 	}
     }
 

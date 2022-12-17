@@ -94,7 +94,12 @@ public final class ApplicationSettings {
             applicationConfig = new Properties();
 
             if (applicationConfigFile.exists()) {
-                applicationConfig.load(new FileInputStream(applicationConfigFile));
+                FileInputStream inputStream = new FileInputStream(applicationConfigFile);
+                try {
+                    applicationConfig.load(inputStream);
+                } finally {
+                    inputStream.close();
+                }
             }
         } catch (Exception e) {
             log.error(e.getLocalizedMessage(), e);

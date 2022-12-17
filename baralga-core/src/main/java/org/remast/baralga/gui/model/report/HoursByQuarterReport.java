@@ -85,7 +85,10 @@ public class HoursByQuarterReport {
 	    case BaralgaEvent.FILTER_CHANGED:
         case BaralgaEvent.PROJECT_REMOVED:
 		calculateHours();
-		break;
+			 break;
+
+			default: break;
+
 	    }
 	    eventBus.post(this);
 	}

@@ -146,6 +146,8 @@ public class DescriptionPanel extends JPanel {
 		case BaralgaEvent.PROJECT_ACTIVITY_ADDED:
 			applyFilter();
 			break;
+
+			default: break;
 		}
 	}
 
