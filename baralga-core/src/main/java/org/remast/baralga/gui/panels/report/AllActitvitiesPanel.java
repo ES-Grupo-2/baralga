@@ -112,9 +112,6 @@ public class AllActitvitiesPanel extends JPanel {
 				);
 
 		table.getSelectionModel().addListSelectionListener(event -> {
-			if (table.getSelectedRows() == null) {
-				table.setToolTipText(null);
-			}
 
 			double duration = 0;
 
