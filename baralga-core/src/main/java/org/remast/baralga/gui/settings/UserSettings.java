@@ -532,7 +532,6 @@ public final class UserSettings {
 	 * Getter for password in multi-user mode.
 	 */
 	public String getPassword() {
-		String password = System.getProperty("user.password");
 		return userConfig.getProperty(PASSWORD, null);
 	}
 
