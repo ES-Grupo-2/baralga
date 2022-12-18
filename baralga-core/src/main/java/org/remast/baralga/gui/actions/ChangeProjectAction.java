@@ -93,7 +93,7 @@ public class ChangeProjectAction extends AbstractBaralgaAction {
 
         final Object selectedValue = pane.getValue();
 
-        return (selectedValue instanceof Integer)
-        && ((Integer) selectedValue == JOptionPane.YES_OPTION);
+        return selectedValue instanceof Integer
+        && (Integer) selectedValue == JOptionPane.YES_OPTION;
     }
 }

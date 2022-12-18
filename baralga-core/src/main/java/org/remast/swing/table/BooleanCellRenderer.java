@@ -45,10 +45,11 @@ public class BooleanCellRenderer extends DefaultTableCellRenderer {
                           boolean isSelected, boolean hasFocus, int row, int column) {
 
         // if value is null - cell mustn't contain any CheckBoxes
-        if ( value == null )
+        if ( value == null ) {
             return super.getTableCellRendererComponent(table,
                     "", isSelected, hasFocus, row, column);
-
+        }
+        
         return booleanRenderer.getTableCellRendererComponent(table,
             value, isSelected, hasFocus, row, column);
     }
@@ -78,7 +79,7 @@ public class BooleanCellRenderer extends DefaultTableCellRenderer {
     			setForeground(table.getForeground());
     			setBackground(table.getBackground());
     		}
-    		setSelected((value != null && (Boolean) value));
+    		setSelected(value != null && (Boolean) value);
 
     		if (hasFocus) {
     			setBorder(UIManager.getBorder("Table.focusCellHighlightBorder"));

@@ -268,14 +268,18 @@ public class ScreenUtils {
             if (rectRight > screenRight) {
                 rect.x = screenRight - rect.width;
             }
-            if (rect.x < containgScreen.x) rect.x = containgScreen.x;
+            if (rect.x < containgScreen.x) {
+            	rect.x = containgScreen.x;
+            }
             // check Y
             int rectBottom = rect.y + rect.height;
             int screenBottom = containgScreen.y + containgScreen.height;
             if (rectBottom > screenBottom) {
                 rect.y = screenBottom - rect.height;
             }
-            if (rect.y < containgScreen.y) rect.y = containgScreen.y;
+            if (rect.y < containgScreen.y) {
+            	rect.y = containgScreen.y;
+            }
             // return corrected rect
             return rect;
         }
