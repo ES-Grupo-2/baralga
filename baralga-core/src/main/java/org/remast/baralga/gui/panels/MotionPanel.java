@@ -20,7 +20,8 @@ public class MotionPanel extends JPanel {
 		this.parentWindow = parentWindow;
 
 		addMouseListener(new MouseAdapter() {
-
+			
+			@Override
 			public void mousePressed(MouseEvent event) {
 				initialClick = event.getPoint();
 				getComponentAt(initialClick);

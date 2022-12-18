@@ -52,13 +52,16 @@ public class JXTrayIcon extends TrayIcon {
     
     private static PopupMenuListener popupListener = new PopupMenuListener() {
         
+    	@Override
         public void popupMenuWillBecomeVisible(final PopupMenuEvent event) {
         }
 
+    	@Override
         public void popupMenuWillBecomeInvisible(final PopupMenuEvent event) {
             dialog.setVisible(false);
         }
 
+    	@Override
         public void popupMenuCanceled(final PopupMenuEvent event) {
             dialog.setVisible(false);
         }

@@ -85,6 +85,7 @@ public class ExceptionUtils {
 	
 	public static final class ExceptionHandlingEventProcessor extends EventQueue {
  
+		@Override
 		protected void dispatchEvent(final AWTEvent evt) {
 			try {
 				super.dispatchEvent(evt);

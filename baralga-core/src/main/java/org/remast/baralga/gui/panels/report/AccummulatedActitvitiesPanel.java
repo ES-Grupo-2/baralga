@@ -79,7 +79,8 @@ public class AccummulatedActitvitiesPanel extends JPanel implements Observer {
 		this.add(searchField, "1, 1");
 		this.add(tableScrollPane, "1, 3");
     }
-
+    
+    @Override
     public void update(final Observable obj, final Object arg) {
         if (obj instanceof ObservingAccumulatedActivitiesReport) {
             tableModel.fireTableDataChanged();

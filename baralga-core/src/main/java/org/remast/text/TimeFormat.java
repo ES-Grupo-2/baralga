@@ -34,6 +34,7 @@ public class TimeFormat extends DateFormat {
      * @return
      * @see java.text.DateFormat#format(java.util.Date, java.lang.StringBuffer, java.text.FieldPosition)
      */
+    @Override
     public StringBuffer format(final Date date, final StringBuffer toAppendTo, final FieldPosition fieldPosition) {
         synchronized (timeFormat) {
             return timeFormat.format(date, toAppendTo, fieldPosition);
@@ -46,6 +47,7 @@ public class TimeFormat extends DateFormat {
      * @return
      * @see java.text.DateFormat#parse(java.lang.String, java.text.ParsePosition)
      */
+    @Override
     public Date parse(final String source, final ParsePosition pos) {
         synchronized (timeFormat) {
             return timeFormat.parse(source, pos);

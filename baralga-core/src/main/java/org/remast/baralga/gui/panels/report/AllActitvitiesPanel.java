@@ -129,7 +129,8 @@ public class AllActitvitiesPanel extends JPanel {
 
 		final JPopupMenu contextMenu = new JPopupMenu();
 		final Action editAction = new AbstractAction(textBundle.textFor("AllActitvitiesPanel.Edit"), new ImageIcon(getClass().getResource("/icons/gtk-edit.png"))) { //$NON-NLS-1$
-
+			
+			@Override
 			public void actionPerformed(final ActionEvent event) {
 				// 1. Get selected activities
 				int[] selectionIndices = table.getSelectedRows();
@@ -152,7 +153,8 @@ public class AllActitvitiesPanel extends JPanel {
 		contextMenu.add(editAction);
 
 		contextMenu.add(new AbstractAction(textBundle.textFor("AllActitvitiesPanel.Delete"), new ImageIcon(getClass().getResource("/icons/gtk-delete.png"))) { //$NON-NLS-1$
-
+			
+			@Override
 			public void actionPerformed(final ActionEvent event) {
 
 				// 1. Get selected activities
@@ -171,7 +173,8 @@ public class AllActitvitiesPanel extends JPanel {
 		});
 
 		final Action copyDescriptionAction = new AbstractAction(textBundle.textFor("AllActitvitiesPanel.CopyDescription"), new ImageIcon(getClass().getResource("/icons/gtk-copy.png"))) { //$NON-NLS-1$
-
+			
+			@Override
 			public void actionPerformed(final ActionEvent event) {
 				// 1. Get selected activities
 				final int[] selectionIndices = table.getSelectedRows();

@@ -20,6 +20,7 @@ public class JHighligthedTable extends JTable {
     	super(tableModel);
     }
 
+    @Override
 	public Component prepareRenderer(TableCellRenderer renderer, int row, int column){
 		Component returnComp = super.prepareRenderer(renderer, row, column);
 		if (!returnComp.getBackground().equals(getSelectionBackground())){

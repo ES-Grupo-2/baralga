@@ -335,6 +335,7 @@ public class ReportPanel extends JXPanel implements ActionListener {
 	 * One of the filter criteria changed. So we create and apply the filter.
 	 * @param event the event that caused the change of filter criteria
 	 */
+	@Override
 	public final void actionPerformed(final ActionEvent event) {
 		this.actionPerformed(event, FilterInterval.Same);
 	}

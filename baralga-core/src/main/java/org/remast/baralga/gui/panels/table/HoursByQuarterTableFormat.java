@@ -17,6 +17,7 @@ public class HoursByQuarterTableFormat implements TableFormat<HoursByQuarter> {
     /**
      * Gets the number of columns for the table.
      */
+    @Override
     public int getColumnCount() {
         return 3;
     }
@@ -25,6 +26,7 @@ public class HoursByQuarterTableFormat implements TableFormat<HoursByQuarter> {
      * Gets the name of the given column.
      * @param column the number of the column
      */
+    @Override
     public String getColumnName(final int column) {
         switch (column) {
         case 0:
@@ -38,6 +40,7 @@ public class HoursByQuarterTableFormat implements TableFormat<HoursByQuarter> {
         }
     }
 
+    @Override
     public Object getColumnValue(final HoursByQuarter baseObject, final int column) {
         switch (column) {
         case 0:

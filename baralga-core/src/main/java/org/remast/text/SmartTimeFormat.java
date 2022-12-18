@@ -23,6 +23,7 @@ public class SmartTimeFormat extends TimeFormat {
     /**
      * {@inheritDoc}
      */
+	@Override
     public final Date parse(final String source, final ParsePosition pos) {
         String time = source;
         time = Strings.nullToEmpty(time).trim();

@@ -249,6 +249,8 @@ public class AddOrEditActivityDialog extends EscapeDialog {
             submitActivityButton.setMnemonic(KeyEvent.VK_ENTER);
 
             submitActivityButton.addActionListener(new ActionListener() {
+            	
+            	@Override
                 public void actionPerformed(final ActionEvent event) {
                     // Validate
                     if (!AddOrEditActivityDialog.this.validateFields()) {

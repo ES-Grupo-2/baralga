@@ -30,6 +30,7 @@ public class ProjectPredicate implements Predicate<ProjectActivity> {
      * @return <code>true</code> if the given object is a project activity
      * of that project else <code>false</code>
      */
+    @Override
     public boolean test(final ProjectActivity activity) {
         if (activity == null) {
             return false;

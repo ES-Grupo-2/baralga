@@ -31,6 +31,7 @@ public class TimeIntervalPredicate implements Predicate<ProjectActivity> {
      * @return <code>true</code> if the given object is a project activity of
      *         that day else <code>false</code>
      */
+    @Override
     public boolean test(final ProjectActivity activity) {
         if (activity == null) {
             return false;

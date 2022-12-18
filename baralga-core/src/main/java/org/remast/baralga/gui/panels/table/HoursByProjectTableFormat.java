@@ -18,6 +18,7 @@ public class HoursByProjectTableFormat implements TableFormat<HoursByProject> {
      * Gets the number of columns for the table.
      * @return the numer of columns
      */
+    @Override
     public final int getColumnCount() {
         return 2;
     }
@@ -27,6 +28,7 @@ public class HoursByProjectTableFormat implements TableFormat<HoursByProject> {
      * @param column the number of the column
      * @return the name of the column
      */
+    @Override
     public final String getColumnName(final int column) {
         switch (column) {
         case 0:
@@ -38,6 +40,7 @@ public class HoursByProjectTableFormat implements TableFormat<HoursByProject> {
         }
     }
 
+    @Override
     public Object getColumnValue(final HoursByProject baseObject, final int column) {
         switch (column) {
         case 0:

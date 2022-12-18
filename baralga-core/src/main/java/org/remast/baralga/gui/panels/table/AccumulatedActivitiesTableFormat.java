@@ -18,6 +18,7 @@ public class AccumulatedActivitiesTableFormat implements TableFormat<Accumulated
     /**
      * Gets the number of columns for the table.
      */
+    @Override
     public int getColumnCount() {
         return 3;
     }
@@ -26,6 +27,7 @@ public class AccumulatedActivitiesTableFormat implements TableFormat<Accumulated
      * Gets the name of the given column.
      * @param col the number of the column
      */
+    @Override
     public String getColumnName(final int col) {
         switch (col) {
             case 0:
@@ -39,6 +41,7 @@ public class AccumulatedActivitiesTableFormat implements TableFormat<Accumulated
         }
     }
 
+    @Override
     public Object getColumnValue(final AccumulatedProjectActivity accActivity, final int col) {
         switch (col) {
             case 0:

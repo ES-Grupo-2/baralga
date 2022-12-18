@@ -43,6 +43,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Initializes the database and the connection to the database.
      * @throws SQLException on error during initialization
      */
+    @Override
     public void initialize() {
         try {
             final String dataDirPath = ApplicationSettings.instance().getApplicationDataDirectory().getAbsolutePath();
@@ -64,6 +65,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
     /**
      * Closes the database by closing the only connection to it.
      */
+    @Override
     public void close() {
         try {
             if (connection != null && !connection.isClosed()) {
@@ -153,6 +155,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Removes a project.
      * @param project the project to remove
      */
+    @Override
     public void remove(final ProjectVO project) {
         if (project == null) {
             return;
@@ -179,6 +182,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Adds a new project.
      * @param project the project to add
      */
+    @Override
     public ProjectVO addProject(final ProjectVO project) {
         if (project == null) {
             return null;
@@ -207,6 +211,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Getter for all projects (both active and inactive).
      * @return read-only view of the projects
      */
+    @Override
     public List<ProjectVO> getAllProjects() {
         final List<ProjectVO> allProjects = new ArrayList<>();
 
@@ -235,6 +240,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Provides all activities.
      * @return read-only view of the activities
      */
+    @Override
     public List<ActivityVO> getActivities() {
         return getActivities(null);
     }
@@ -243,6 +249,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Adds a new activity.
      * @param activity the activity to add
      */
+    @Override
     public ActivityVO addActivity(final ActivityVO activity) {
         if (activity == null) {
             return null;
@@ -277,6 +284,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Removes an activity.
      * @param activity the activity to remove
      */
+    @Override
     public void removeActivity(final ActivityVO activity) {
         if (activity == null) {
             return;
@@ -296,6 +304,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Adds a bunch of projects.
      * @param projects the projects to add
      */
+    @Override
     public void addProjects(final Collection<ProjectVO> projects) {
         if (projects == null || projects.isEmpty()) {
             return;
@@ -310,6 +319,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Adds a bunch of activities.
      * @param activities the activities to add
      */
+    @Override
     public Collection<ActivityVO> addActivities(final Collection<ActivityVO> activities) {
         if (activities == null || activities.isEmpty()) {
             return null;
@@ -326,6 +336,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Removes a bunch of activities.
      * @param activities the activities to remove
      */
+    @Override
     public void removeActivities(final Collection<ActivityVO> activities) {
         if (activities == null || activities.size() == 0) {
             return;
@@ -340,6 +351,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Updates the project in the database. Pending changes will be made persistent.
      * @param project the project to update
      */
+    @Override
     public void updateProject(final ProjectVO project) {
         if (project == null) {
             return;
@@ -364,6 +376,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * Updates the activity in the database. Pending changes will be made persistent.
      * @param activity the activity to update
      */
+    @Override
     public void updateActivity(final ActivityVO activity) {
         if (activity == null) {
             return;
@@ -395,6 +408,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * @param projectId the id of the project
      * @return the project with the given id or <code>null</code> if there is none
      */
+    @Override
     public Optional<ProjectVO> findProjectById(final String projectId) {
         if (projectId == null) {
             return Optional.empty();
@@ -432,6 +446,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
      * @param filter the filter for activities
      * @return read-only view of the activities
      */
+    @Override
     public List<ActivityVO> getActivities(final FilterVO filter) {
         String sqlCondition = ""; //$NON-NLS-1$
 
@@ -476,6 +491,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
     /**
      * Gathers some statistics about the tracked activities.
      */
+    @Override
     public void gatherStatistics() {
         try (final Statement statement = connection.createStatement()) {
             try (ResultSet resultSet = statement.executeQuery("select count(*) as rowcount from activity")) { //$NON-NLS-1$
@@ -520,6 +536,7 @@ public class BaralgaFileRepository implements BaralgaRepository {
     /**
      * Removes all projects and activities from the database.
      */
+    @Override
     public void clearData() {
         try (final PreparedStatement activitiesDelete = prepare("delete from activity")) { //$NON-NLS-1$
             // Remove activities

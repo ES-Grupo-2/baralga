@@ -25,10 +25,12 @@ public class ProjectListTableFormat implements WritableTableFormat<Project> {
         this.model = model;
     }
 
+    @Override
     public boolean isEditable(final Project project, final int column) {
         return model.isProjectAdministrationAllowed();
     }
 
+    @Override
     public Project setColumnValue(final Project project, final Object value, final int column) {
         switch (column) {
         case 0:
@@ -62,10 +64,12 @@ public class ProjectListTableFormat implements WritableTableFormat<Project> {
         return project;
     }
 
+    @Override
     public int getColumnCount() {
         return 2;
     }
 
+    @Override
     public String getColumnName(final int column) {
         switch (column) {
 
@@ -80,6 +84,7 @@ public class ProjectListTableFormat implements WritableTableFormat<Project> {
         }
     }
 
+    @Override
     public Object getColumnValue(final Project project, final int column) {
         switch (column) {
 
