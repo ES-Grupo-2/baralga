@@ -97,48 +97,23 @@ public class DescriptionPanel extends JPanel {
 		}
 
 		final BaralgaEvent event = (BaralgaEvent) eventObject;
-		ProjectActivity activity;
 
 		switch (event.getType()) {
 
 		case BaralgaEvent.PROJECT_ACTIVITY_CHANGED:
-		{
-			activity = (ProjectActivity) event.getData();
-			final boolean matchesFilter = model.getFilter().matchesCriteria(activity);
-
-			if (entriesByActivity.containsKey(activity)) {
-				// If activity matches the current filter it is updated
-				// if not the activity is removed
-				if (matchesFilter) {
-					entriesByActivity.get(activity).update();
-				} else {
-					final DescriptionPanelEntry entryPanel = entriesByActivity.get(activity);
-					this.container.remove(entryPanel);
-				}
-			}
-
+			this.project_activity_changed(event);
 			break;
-		}
 
 		case BaralgaEvent.PROJECT_ACTIVITY_REMOVED:
-			final Collection<ProjectActivity> projectActivities = (Collection<ProjectActivity>) event.getData();
-			for (ProjectActivity projectActivity : projectActivities) {
-				if (entriesByActivity.containsKey(projectActivity)) {
-					final DescriptionPanelEntry entryPanel = entriesByActivity.get(projectActivity);
-					this.container.remove(entryPanel);
-				}
-			}
+			this.project_activity_removed(event);
 			break;
 
 		case BaralgaEvent.PROJECT_CHANGED:
-			for (Entry<ProjectActivity, DescriptionPanelEntry> entry : entriesByActivity.entrySet()) {
-				entry.getValue().update();
-			}
+			this.project_changed();
 			break;
 
 		case BaralgaEvent.FILTER_CHANGED:
-			final Filter newFilter = (Filter) event.getData();
-			setFilter(newFilter);
+			this.filter_changed(event);
 			break;
 
         case BaralgaEvent.PROJECT_REMOVED:
@@ -151,6 +126,43 @@ public class DescriptionPanel extends JPanel {
 		}
 	}
 
+	private void project_activity_changed(BaralgaEvent event) {
+		ProjectActivity activity = (ProjectActivity) event.getData();
+		final boolean matchesFilter = model.getFilter().matchesCriteria(activity);
+
+		if (entriesByActivity.containsKey(activity)) {
+			// If activity matches the current filter it is updated
+			// if not the activity is removed
+			if (matchesFilter) {
+				entriesByActivity.get(activity).update();
+			} else {
+				final DescriptionPanelEntry entryPanel = entriesByActivity.get(activity);
+				this.container.remove(entryPanel);
+			}
+		}
+	}
+	
+	private void project_activity_removed(BaralgaEvent event) {
+		final Collection<ProjectActivity> projectActivities = (Collection<ProjectActivity>) event.getData();
+		for (ProjectActivity projectActivity : projectActivities) {
+			if (entriesByActivity.containsKey(projectActivity)) {
+				final DescriptionPanelEntry entryPanel = entriesByActivity.get(projectActivity);
+				this.container.remove(entryPanel);
+			}
+		}
+	}
+	
+	private void project_changed() {
+		for (Entry<ProjectActivity, DescriptionPanelEntry> entry : entriesByActivity.entrySet()) {
+			entry.getValue().update();
+		}
+	}
+	
+	private void filter_changed(BaralgaEvent event) {
+		final Filter newFilter = (Filter) event.getData();
+		setFilter(newFilter);
+	}
+	
 	private void setFilter(final Filter filter) {
 		applyFilter();
 	}
