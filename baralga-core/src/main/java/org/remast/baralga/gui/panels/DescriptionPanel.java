@@ -147,7 +147,7 @@ public class DescriptionPanel extends JPanel {
 			applyFilter();
 			break;
 
-			default: break;
+		default: break;
 		}
 	}
 

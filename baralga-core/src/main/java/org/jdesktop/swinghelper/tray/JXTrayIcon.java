@@ -19,14 +19,7 @@
 
 package org.jdesktop.swinghelper.tray;
 
-import java.awt.AWTException;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
@@ -96,16 +89,33 @@ public class JXTrayIcon extends TrayIcon {
         }
     }
 
+    /*
+    * Creates and returns a copy of the JPopupMenu instance.
+    *
+    * @return the copy of the JPopupMenu instance
+    */
     public JPopupMenu getJPopupMenu() {
-        return menu;
+        JPopupMenu menuCopy = new JPopupMenu();
+        Component[] originalComponents = menu.getComponents();
+        for (Component component : originalComponents) {
+            menuCopy.add(component);
+        }
+        return menuCopy;
     }
 
+    /*
+    Sets the JPopupMenu for this component.
+    @param menu the JPopupMenu to set for this component
+     */
     public void setJPopupMenu(final JPopupMenu menu) {
         if (this.menu != null) {
             this.menu.removePopupMenuListener(popupListener);
         }
-        this.menu = menu;
-        menu.addPopupMenuListener(popupListener);
+        this.menu = new JPopupMenu();
+        for (Component component : menu.getComponents()) {
+            this.menu.add(component);
+        }
+        this.menu.addPopupMenuListener(popupListener);
     }
 
     private static void createGui() {
